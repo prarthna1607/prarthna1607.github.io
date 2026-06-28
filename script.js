@@ -3,11 +3,21 @@ const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const projectCards = document.querySelectorAll(".project-card");
 const projectPanels = document.querySelectorAll(".project-panel");
+const scrollProgress = document.querySelector(".scroll-progress");
 
 function refreshIcons() {
   if (window.lucide) {
     window.lucide.createIcons();
   }
+}
+
+function updateScrollUi() {
+  const scrollTop = window.scrollY;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+  scrollProgress.style.width = `${progress}%`;
+  header.classList.toggle("is-scrolled", scrollTop > 16);
 }
 
 navToggle?.addEventListener("click", () => {
@@ -23,6 +33,15 @@ navLinks.forEach((link) => {
 });
 
 projectCards.forEach((card) => {
+  card.addEventListener("pointermove", (event) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+    card.style.setProperty("--x", `${x}%`);
+    card.style.setProperty("--y", `${y}%`);
+  });
+
   card.addEventListener("click", () => {
     const targetId = card.dataset.project;
 
@@ -47,4 +66,6 @@ document.querySelectorAll(".reveal").forEach((element) => {
   revealObserver.observe(element);
 });
 
+window.addEventListener("scroll", updateScrollUi, { passive: true });
 window.addEventListener("load", refreshIcons);
+window.addEventListener("load", updateScrollUi);

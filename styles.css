@@ -45,6 +45,17 @@ body::before {
   mask-image: linear-gradient(to bottom, black, transparent 78%);
 }
 
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 22px rgba(45, 212, 191, 0.45);
+}
+
 a {
   color: inherit;
 }
@@ -69,6 +80,14 @@ textarea {
   background: rgba(9, 10, 15, 0.78);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
+  transition: padding 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+}
+
+.site-header.is-scrolled {
+  padding-top: 0.72rem;
+  padding-bottom: 0.72rem;
+  background: rgba(9, 10, 15, 0.9);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
@@ -157,7 +176,14 @@ textarea {
 
 .hero h1 span {
   display: block;
+  width: fit-content;
   color: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--danger), var(--accent));
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: titleShift 7s ease-in-out infinite;
 }
 
 .hero-text {
@@ -184,6 +210,7 @@ textarea {
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn svg {
@@ -218,6 +245,8 @@ textarea {
   overflow: hidden;
   background: var(--panel);
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.35);
+  transform-style: preserve-3d;
+  animation: floatPanel 6s ease-in-out infinite;
 }
 
 .profile-panel img {
@@ -225,6 +254,11 @@ textarea {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.profile-panel:hover img {
+  transform: scale(1.04);
 }
 
 .profile-stats {
@@ -340,6 +374,13 @@ textarea {
   padding: 0.38rem 0.75rem;
   font-size: 0.88rem;
   font-weight: 700;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.pill-grid span:hover {
+  transform: translateY(-3px);
+  border-color: rgba(45, 212, 191, 0.42);
+  background: rgba(45, 212, 191, 0.1);
 }
 
 .tag {
@@ -368,6 +409,13 @@ textarea {
 
 .info-card {
   min-height: 215px;
+  transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: var(--panel-strong);
 }
 
 .muted {
@@ -397,7 +445,23 @@ textarea {
   color: var(--text);
   text-align: left;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 30%), rgba(255,255,255,0.16), transparent 9rem);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.project-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .project-card:hover,
@@ -405,6 +469,11 @@ textarea {
   transform: translateY(-4px);
   border-color: rgba(139, 124, 246, 0.5);
   background: rgba(139, 124, 246, 0.09);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.28);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-card small {
@@ -424,12 +493,20 @@ textarea {
 
 .project-panel.is-visible {
   display: block;
+  animation: panelIn 0.35s ease both;
 }
 
 .project-panel ul {
   margin: 1rem 0 0;
   padding-left: 1.2rem;
   color: var(--muted);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
 }
 
 .contact-section {
@@ -476,6 +553,46 @@ textarea {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes titleShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floatPanel {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes panelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @media (max-width: 860px) {
