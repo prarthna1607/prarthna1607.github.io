@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio for Prarthna Singh, a core CSE student and web developer.">
+  <title>Prarthna Singh | Web Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="Go to home">Prarthna Singh</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="header-cta" href="#contact">Hire Me</a>
+  </header>
+
+  <main id="home">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Available for internships and freelance work</p>
+        <h1 class="reveal">Prarthna Singh<span>Web Developer.</span></h1>
+        <p class="hero-text reveal">
+          I am a core Computer Science student building clean, responsive, and user-focused web projects with HTML, CSS,
+          JavaScript, and modern frontend practices.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="btn btn-primary" href="#projects"><i data-lucide="folder-kanban"></i> View Projects</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/prarthna-singh-39103b235?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noreferrer"><i data-lucide="linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+      <aside class="profile-panel reveal" aria-label="Profile summary">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Laptop with code editor on a desk">
+        <div class="profile-stats">
+          <span><strong>5+</strong> Projects</span>
+          <span><strong>Web</strong> Focus</span>
+          <span><strong>2026</strong> Portfolio</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section-shell about-section">
+      <div class="section-heading reveal">
+        <span>01</span>
+        <h2>About</h2>
+      </div>
+      <div class="about-grid">
+        <p class="lead reveal">
+          I am a core Computer Science Engineering student at Manav Rachna International Institute of Research and Studies.
+          I focus on web development, responsive layouts, clean UI, and practical frontend projects.
+        </p>
+        <div class="about-note reveal">
+          <h3>Current Focus</h3>
+          <p>
+            I am strengthening my HTML, CSS, JavaScript, GitHub, and project-building skills so my portfolio shows actual
+            work instead of only certificates or claims.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section-shell">
+      <div class="section-heading reveal">
+        <span>02</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="skill-block reveal">
+        <h3>Languages</h3>
+        <div class="pill-grid">
+          <span>Python</span>
+          <span>Java</span>
+          <span>C</span>
+          <span>SQL</span>
+          <span>JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-block reveal">
+        <h3>Web Development</h3>
+        <div class="pill-grid">
+          <span>HTML5</span>
+          <span>CSS3</span>
+          <span>Responsive Design</span>
+          <span>DOM Manipulation</span>
+          <span>Frontend UI</span>
+          <span>Web Hosting</span>
+        </div>
+      </div>
+      <div class="skill-block reveal">
+        <h3>Tools</h3>
+        <div class="pill-grid">
+          <span>GitHub</span>
+          <span>VS Code</span>
+          <span>Netlify</span>
+          <span>Canva</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section-shell education-section">
+      <div class="section-heading reveal">
+        <span>03</span>
+        <h2>Education</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card reveal">
+          <span class="tag">2024 - 2028</span>
+          <h3>B.Tech Computer Science Engineering</h3>
+          <p>Manav Rachna International Institute of Research and Studies</p>
+          <p class="muted">Core CSE student</p>
+        </article>
+        <article class="info-card reveal">
+          <span class="tag">2024</span>
+          <h3>Class XII</h3>
+          <p>DAV Public School, Sector 14, Faridabad</p>
+          <p class="muted">Percentage: 75%</p>
+        </article>
+        <article class="info-card reveal">
+          <span class="tag">2022</span>
+          <h3>Class X</h3>
+          <p>DAV Public School, Sector 14, Faridabad</p>
+          <p class="muted">Percentage: 85%</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section-shell projects-section">
+      <div class="section-heading reveal">
+        <span>04</span>
+        <h2>Projects</h2>
+      </div>
+      <div class="project-grid">
+        <button class="project-card reveal is-active" type="button" data-project="project-one">
+          <span class="tag">Frontend</span>
+          <h3>Personal Portfolio Website</h3>
+          <p>Responsive portfolio website with modern sections, smooth interactions, and GitHub Pages deployment.</p>
+          <small>HTML - CSS - JavaScript</small>
+        </button>
+        <button class="project-card reveal" type="button" data-project="project-two">
+          <span class="tag teal">Web App</span>
+          <h3>Task Management Dashboard</h3>
+          <p>Browser-based dashboard concept for tracking tasks, notes, and deadlines with a clean interface.</p>
+          <small>HTML - CSS - JavaScript</small>
+        </button>
+        <button class="project-card reveal" type="button" data-project="project-three">
+          <span class="tag amber">Web App</span>
+          <h3>Responsive Landing Page</h3>
+          <p>Landing page layout for a product, service, or college club with responsive sections and CTA buttons.</p>
+          <small>HTML - CSS - Responsive Design</small>
+        </button>
+      </div>
+
+      <div class="project-details reveal">
+        <article id="project-one" class="project-panel is-visible">
+          <h3>Personal Portfolio Website</h3>
+          <p>
+            A personal portfolio designed to present education, skills, projects, and contact details in a professional
+            single-page layout.
+          </p>
+          <ul>
+            <li>Built responsive sections for desktop and mobile screens.</li>
+            <li>Added smooth reveal animations and interactive project panels.</li>
+            <li>Prepared the site for simple GitHub Pages hosting.</li>
+          </ul>
+        </article>
+        <article id="project-two" class="project-panel">
+          <h3>Task Management Dashboard</h3>
+          <p>
+            A frontend dashboard concept for organizing student tasks, notes, and deadlines in one place.
+          </p>
+          <ul>
+            <li>Designed reusable card layouts and clear task states.</li>
+            <li>Created a mobile-friendly layout for smaller screens.</li>
+            <li>Planned local browser storage for saving user data.</li>
+          </ul>
+        </article>
+        <article id="project-three" class="project-panel">
+          <h3>Responsive Landing Page</h3>
+          <p>
+            A responsive landing page project is useful for practicing layout, spacing, typography, and calls to action.
+          </p>
+          <ul>
+            <li>Created hero, feature, about, and contact sections.</li>
+            <li>Used CSS Grid and Flexbox for responsive structure.</li>
+            <li>Focused on readable copy and polished visual hierarchy.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-shell leadership-section">
+      <div class="section-heading reveal">
+        <span>05</span>
+        <h2>Growth</h2>
+      </div>
+      <div class="card-grid">
+        <article class="info-card reveal">
+          <span class="tag">2025 - Present</span>
+          <h3>Web Development Practice</h3>
+          <p>Building frontend projects to improve layout, responsiveness, UI polish, and deployment confidence.</p>
+        </article>
+        <article class="info-card reveal">
+          <span class="tag teal">2024 - 2025</span>
+          <h3>Academic Development</h3>
+          <p>Growing core CSE fundamentals while creating practical work that can be shown publicly.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-inner reveal">
+        <p class="eyebrow">Ready to work together?</p>
+        <h2>Let's Connect.</h2>
+        <p>Open to internships, collaborations, and project discussions.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:prarthnasingh1607@gmail.com"><i data-lucide="mail"></i> Email Me</a>
+          <a class="btn btn-secondary" href="https://github.com/prarthna1607" target="_blank" rel="noreferrer"><i data-lucide="github"></i> GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Prarthna Singh - Web Developer Portfolio - 2026</p>
+  </footer>
+</body>
+</html>
